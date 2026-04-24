@@ -35,6 +35,10 @@ Infinite horizontal ticker slider utility for Webflow and plain HTML.
 <script src="https://cdn.jsdelivr.net/gh/zen-aperios/ticker-slider@main/ticker-slider.min.js"></script>
 ```
 
+## Conditional Loading
+
+If you only want to load assets on pages that contain `.ticker-slider`, use the conditional loader in `HOW_TO_WEBFLOW.md` instead of global CSS/JS includes.
+
 ## Re-init
 
 ```html

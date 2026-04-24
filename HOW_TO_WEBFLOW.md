@@ -48,3 +48,27 @@ Publish site and hard refresh.
   window.TickerSlider && window.TickerSlider.init();
 </script>
 ```
+
+## 5) Load Only On Pages That Use It
+
+If you do not want to load ticker assets on every page, keep only this small loader script in project-wide Footer code:
+
+```html
+<script>
+(() => {
+  if (!document.querySelector(".ticker-slider")) return;
+
+  const css = document.createElement("link");
+  css.rel = "stylesheet";
+  css.href = "https://cdn.jsdelivr.net/gh/zen-aperios/ticker-slider@main/ticker-slider.min.css";
+  document.head.appendChild(css);
+
+  const js = document.createElement("script");
+  js.src = "https://cdn.jsdelivr.net/gh/zen-aperios/ticker-slider@main/ticker-slider.min.js";
+  js.defer = true;
+  document.body.appendChild(js);
+})();
+</script>
+```
+
+With this setup, pages without `.ticker-slider` do not enqueue the library.
